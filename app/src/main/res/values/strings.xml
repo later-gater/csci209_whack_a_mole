@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="no_whack">NO WHACK</string>
+    <string name="whack_me">WHACK ME</string>
+</resources>
