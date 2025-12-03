@@ -2,14 +2,18 @@ package com.example.myapplication;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Mole {
-    private Button button;
+    private ImageButton button;
     private Boolean whackable;
-    private Points points;
+
+    public Points points;
+
+
     // add image that pops up
 
-    public Mole(Button button, Points points) {
+    public Mole(ImageButton button, Points points) {
         this.button = button;
         this.whackable = false;
         this.points = points;
@@ -22,8 +26,8 @@ public class Mole {
                     makeUnWhackable();
                     points.addPoint();
                 } else {
-                    // lose points...
-                    points.losePoint();
+                    // lose life...
+                    points.loseLife();
                 }
             }
         });
@@ -31,12 +35,12 @@ public class Mole {
 
     public void makeWhackable() {
         this.whackable = true;
-        this.button.setText(R.string.whack_me);
+        this.button.setImageResource(R.drawable.javalogo);
     }
 
     public void makeUnWhackable() {
         this.whackable = false;
-        this.button.setText(R.string.no_whack);
+        this.button.setImageResource(R.drawable.pythonlogo);
     }
 
     public Boolean getWhackable() {

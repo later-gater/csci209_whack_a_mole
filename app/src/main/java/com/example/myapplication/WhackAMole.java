@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -9,12 +10,14 @@ import java.util.Random;
 public class WhackAMole {
     private ArrayList<Mole> moles;
 
-    private Points points;
+    public Points points;
 
-    public WhackAMole(ArrayList<Button> buttons, TextView headerTextView) {
+
+
+    public WhackAMole(ArrayList<ImageButton> buttons, TextView headerTextView) {
         this.points = new Points(headerTextView);
         this.moles = new ArrayList<>();
-        for (Button button : buttons) {
+        for (ImageButton button : buttons) {
             this.moles.add(new Mole(button, this.points));
         }
     }
@@ -30,6 +33,11 @@ public class WhackAMole {
             whackables.get(new Random().nextInt(whackables.size())).makeWhackable();
         }
     }
+
+
+
+
+
 
     public void makeUnRandomWhackable() {
         ArrayList<Mole> unWhackables = new ArrayList<>();
@@ -51,5 +59,11 @@ public class WhackAMole {
         this.moles.get(pos).makeUnWhackable();
     }
 
+    public void makeAllUnWhackable(){
+        for(Mole mole: this.moles){
+            mole.makeUnWhackable();
+        }
+    }
 
 }
+
